@@ -9,13 +9,13 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
 
-    <groupId>com.paysphere</groupId>
-    <artifactId>paysphere-admin</artifactId>
+    <groupId>com.sphere</groupId>
+    <artifactId>sphere-admin</artifactId>
     <version>1.0.0</version>
     <packaging>pom</packaging>
 
-    <name>paysphere-admin</name>
-    <description>paysphere admin project</description>
+    <name>sphere-admin</name>
+    <description>sphere admin project</description>
 
     <modules>
         <module>admin-api</module>
@@ -74,27 +74,27 @@
 
             <!--project-->
             <dependency>
-                <groupId>com.paysphere</groupId>
+                <groupId>com.sphere</groupId>
                 <artifactId>admin-api</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.paysphere</groupId>
+                <groupId>com.sphere</groupId>
                 <artifactId>admin-application</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.paysphere</groupId>
+                <groupId>com.sphere</groupId>
                 <artifactId>admin-infrastructure</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.paysphere</groupId>
+                <groupId>com.sphere</groupId>
                 <artifactId>admin-share</artifactId>
                 <version>${project.version}</version>
             </dependency>
             <dependency>
-                <groupId>com.paysphere</groupId>
+                <groupId>com.sphere</groupId>
                 <artifactId>admin-start</artifactId>
                 <version>${project.version}</version>
             </dependency>

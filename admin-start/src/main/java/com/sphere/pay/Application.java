@@ -42,7 +42,7 @@ public class Application implements CommandLineRunner {
     @Override
     public void run(String... args) {
         log.info("===> Congratulations sphere!");
-        log.info("===> PaySphere admin start success, time:{}, args:{}", LocalDateTime.now(), args);
+        log.info("===> sphere admin start success, time:{}, args:{}", LocalDateTime.now(), args);
 
         //初始化SYS角色用户
         initSysRole();

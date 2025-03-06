@@ -1,0 +1,102 @@
+spring:
+  application:
+    name: sphere-admin
+  profiles:
+    active: dev
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+  health:
+    defaults:
+      enabled: true
+    db:
+      enabled: false
+    redis:
+      enabled: false
+  metrics:
+    tags:
+      application: ${spring.application.name}
+
+#开发环境
+---
+spring:
+  config:
+    activate:
+      on-profile: dev
+  cloud:
+    nacos:
+      username: nacos
+      password: 2reXz2MRbs8MwgL
+      discovery:
+        server-addr: 34.128.69.251:8848
+        group: DEFAULT_GROUP
+        namespace: 9787cef2-a6da-4a7f-90b3-7d35096e9ff0
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yaml
+        group: DEFAULT_GROUP
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+#        shared-configs:
+#          - dataID: sphere-rsa-key-${spring.profiles.active}.yaml
+#            group: ${spring.profiles.active}
+#            refresh: true
+server:
+  port: 8088
+
+
+#测试环境
+---
+spring:
+  config:
+    activate:
+      on-profile: test
+  cloud:
+    nacos:
+      username: nacos
+      password: 2reXz2MRbs8MwgL
+      discovery:
+        server-addr: 34.128.69.251:8848
+        group: ${spring.profiles.active}
+        namespace: 9720a5b1-d1de-4901-b15e-df340657ab55
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yaml
+        group: ${spring.profiles.active}
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        shared-configs:
+          - dataID: sphere-rsa-key-${spring.profiles.active}.yaml
+            group: ${spring.profiles.active}
+            refresh: true
+server:
+  port: 15808
+
+
+#生产环境
+---
+spring:
+  config:
+    activate:
+      on-profile: prod
+  cloud:
+    nacos:
+      username: spherepay
+      password: wewxux-qinku9-vuvWin
+      discovery:
+        server-addr: nacos.falco.asia:8848
+        group: ${spring.profiles.active}
+        namespace: ece14be2-b081-43a8-83de-afc4270401d7
+      config:
+        server-addr: ${spring.cloud.nacos.discovery.server-addr}
+        file-extension: yaml
+        group: ${spring.profiles.active}
+        namespace: ${spring.cloud.nacos.discovery.namespace}
+        shared-configs:
+          - dataID: sphere-rsa-key-${spring.profiles.active}.yaml
+            group: ${spring.profiles.active}
+            refresh: true
+server:
+  port: 15808
+
